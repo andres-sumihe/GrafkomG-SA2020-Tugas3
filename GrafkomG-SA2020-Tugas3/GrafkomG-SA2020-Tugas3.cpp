@@ -1,5 +1,5 @@
 #include <iostream>
-#include <GL/glut.h>
+#include <GL/freeglut.h>
 #include <vector>
 using namespace std;
 int MouseX = 0, MouseY = 0;
@@ -34,7 +34,7 @@ void keyboardUp(unsigned char key, int x, int y) {
 }
 void printOut() {
 	system("cls");
-	cout << "\n" << "MouseX: " << MouseX << " | " << "MouseY: " << MouseY << endl;
+	cout << "MouseX: " << MouseX << " | " << "MouseY: " << MouseY << endl;
 	for (auto it : arr)
 		cout << char(it) << ' ';
 }
