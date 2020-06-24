@@ -5,7 +5,9 @@ using namespace std;
 int MouseX = 0, MouseY = 0;
 
 vector < int > arr;
+vector<int>::iterator cek;
 
+void printOut(void);
 
 void display() {
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -13,7 +15,7 @@ void display() {
 	
 }
 void keyboardDown(unsigned char key, int x, int y) {
-	vector<int>::iterator cek = find(arr.begin(), arr.end(), key);
+	cek = find(arr.begin(), arr.end(), key);
 	if (cek == arr.end())
 		arr.push_back(key);
 	printOut();
@@ -21,7 +23,7 @@ void keyboardDown(unsigned char key, int x, int y) {
 
 void keyboardUp(unsigned char key, int x, int y) {
 	
-	vector<int>::iterator cek = find(arr.begin(), arr.end(), key);
+	 cek = find(arr.begin(), arr.end(), key);
 	
 	if (cek != arr.end()) {
 		int index = distance(arr.begin(), cek);
@@ -32,9 +34,9 @@ void keyboardUp(unsigned char key, int x, int y) {
 }
 void printOut() {
 	system("cls");
+	cout << "\n" << "MouseX: " << MouseX << " | " << "MouseY: " << MouseY << endl;
 	for (auto it : arr)
-		cout << ' ' << char(it);
-	cout << MouseX << " : " << MouseY << endl;
+		cout << char(it) << ' ';
 }
 
 void mouse(int x, int y) {
